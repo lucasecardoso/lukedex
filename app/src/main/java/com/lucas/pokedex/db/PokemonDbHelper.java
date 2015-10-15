@@ -14,6 +14,15 @@ import java.util.List;
 
 /**
  * Created by Lucas on 5/10/2015.
+ *
+ * <p>
+ *     This class is the SQLite helper class that provides
+ *     all the basic <b>pokemon</b> table operations.
+ * </p>
+ * <p>
+ *     <b>Database: </b> PokedexDB
+ *     <b>Table name: </b> pokemon
+ * </p>
  */
 public class PokemonDbHelper extends SQLiteOpenHelper {
 
@@ -27,16 +36,6 @@ public class PokemonDbHelper extends SQLiteOpenHelper {
     public static final String COL_TYPE_1 = "type_1";
     public static final String COL_TYPE_2 = "type_2";
     public static final String COL_DEX_TEXT = "dex_text";
-
-    private static final String[] COLUMNS = {
-        COL_ID,
-        COL_GEN,
-        COL_NAME,
-        COL_NAT_DEX,
-        COL_TYPE_1,
-        COL_TYPE_2,
-        COL_DEX_TEXT
-    };
 
     public PokemonDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -82,9 +81,12 @@ public class PokemonDbHelper extends SQLiteOpenHelper {
                 pokemon.setName(cursor.getString(cursor.getColumnIndex(COL_NAME)));
                 pokemon.setNationalDexNumber(cursor.getInt(cursor.getColumnIndex(COL_NAT_DEX)));
                 pokemon.setPokedexText(cursor.getString(cursor.getColumnIndex(COL_DEX_TEXT)));
+
+                /* Get the int types and generate a Type object from it */
                 Type type1 = new Type(cursor.getInt(cursor.getColumnIndex(COL_TYPE_1)));
-                pokemon.setType1(type1);
                 Type type2 = new Type(cursor.getInt(cursor.getColumnIndex(COL_TYPE_2)));
+
+                pokemon.setType1(type1);
                 pokemon.setType2(type2);
 
                 result.add(pokemon);

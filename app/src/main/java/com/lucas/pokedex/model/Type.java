@@ -54,6 +54,8 @@ public class Type {
                 return "Steel";
             case 16:
                 return "Fairy";
+            case 17:
+                return "Rock";
         }
 
         return "No type";

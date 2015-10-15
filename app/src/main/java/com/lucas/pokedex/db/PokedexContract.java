@@ -8,13 +8,11 @@ import android.provider.BaseColumns;
 public class PokedexContract
 {
 
-    public PokedexContract()
-    {
+    public PokedexContract() {
 
     }
 
-    public static abstract class PokemonEntry implements BaseColumns
-    {
+    public static abstract class PokemonEntry implements BaseColumns {
         public static final String TABLE_NAME = "pokemon";
         public static final String COL_ID = "id";
         public static final String COL_NAME = "name";

@@ -1,11 +1,12 @@
 package com.lucas.pokedex.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Lucas on 5/10/2015.
  */
-public class Pokemon {
+public class Pokemon implements Serializable {
 
     private int id;
     private int gen;
@@ -14,6 +15,8 @@ public class Pokemon {
     private Type type1;
     private Type type2;
     private String pokedexText;
+
+    public Pokemon() { }
 
     public int getId() {
         return id;
