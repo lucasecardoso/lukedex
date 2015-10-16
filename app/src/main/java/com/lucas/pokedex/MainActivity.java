@@ -1,6 +1,7 @@
 package com.lucas.pokedex;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.lucas.pokedex.activity.PokemonDetailView;
 import com.lucas.pokedex.db.PokedexContract;
 import com.lucas.pokedex.db.PokedexDbHelper;
 
@@ -39,6 +41,11 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void goToDetailedPokemon(View view) {
+        Intent intent = new Intent(this, PokemonDetailView.class);
+        startActivity(intent);
     }
 
     public void addPokemon(View view) {

@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.lucas.pokedex.R;
 import com.lucas.pokedex.model.Pokemon;
@@ -53,13 +54,18 @@ public class PokemonBasicInfo extends Fragment {
             pkmn = (Pokemon) getArguments().get("pkmn");
         else
             pkmn = new Pokemon();
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pokemon_basic_info, container, false);
+        View view = inflater.inflate(R.layout.fragment_pokemon_basic_info, container, false);
+
+        TextView pkmnName = (TextView) view.findViewById(R.id.pkmn_name);
+        pkmnName.setText(pkmn.getNationalDexNumber() + " " + pkmn.getName());
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -97,7 +103,7 @@ public class PokemonBasicInfo extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+
         public void onFragmentInteraction(Uri uri);
     }
 

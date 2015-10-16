@@ -15,6 +15,8 @@ public class Pokemon implements Serializable {
     private Type type1;
     private Type type2;
     private String pokedexText;
+    private int height;
+    private int weight;
 
     public Pokemon() { }
 
@@ -72,5 +74,21 @@ public class Pokemon implements Serializable {
 
     public void setPokedexText(String pokedexText) {
         this.pokedexText = pokedexText;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 }

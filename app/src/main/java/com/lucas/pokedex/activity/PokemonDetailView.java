@@ -2,13 +2,14 @@ package com.lucas.pokedex.activity;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.lucas.pokedex.R;
 import com.lucas.pokedex.fragment.PokemonBasicInfo;
 import com.lucas.pokedex.model.Pokemon;
 
-public class PokemonDetailView extends Activity {
+public class PokemonDetailView extends Activity implements PokemonBasicInfo.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +24,6 @@ public class PokemonDetailView extends Activity {
 
             PokemonBasicInfo basicInfo = new PokemonBasicInfo();
 
-            Fragment fragment = new Fragment();
-
             Pokemon pkmn = new Pokemon();
 
             pkmn.setId(1);
@@ -32,6 +31,8 @@ public class PokemonDetailView extends Activity {
             pkmn.setName("Bulbasaur");
             pkmn.setNationalDexNumber(1);
             pkmn.setPokedexText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+            pkmn.setHeight(100);
+            pkmn.setWeight(100);
 
             Bundle bundle = new Bundle();
             bundle.putSerializable(PokemonBasicInfo.ARG_PARAM1, pkmn);
@@ -41,5 +42,10 @@ public class PokemonDetailView extends Activity {
             getFragmentManager().beginTransaction().add(R.id.basic_info_container, basicInfo).commit();
         }
 
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+        System.out.println("test");
     }
 }
