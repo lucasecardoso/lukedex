@@ -3,71 +3,83 @@
     android:layout_height="match_parent"
     tools:context="com.lucas.pokedex.fragment.PokemonBasicInfo">
 
-    <RelativeLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="5dp">
-        <FrameLayout
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/pic_frame">
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/pkmn_sprite"
-                android:src="@mipmap/spr_01_001"
-                android:scaleType="fitXY" />
-        </FrameLayout>
+    <TableLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:showDividers="middle|beginning|end"
+        android:stretchColumns="*">
 
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_gravity="center_horizontal">
+            <FrameLayout
+                android:layout_column="0"
+                android:id="@+id/pic_frame"
+                android:layout_height="80dp"
+                android:layout_width="80dp"
+                android:layout_span="2">
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/pkmn_sprite"
+                    android:src="@mipmap/spr_02_001"
+                    android:scaleType="fitCenter" />
+            </FrameLayout>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Name"
+                android:id="@+id/pkmn_name"
+                android:layout_gravity="center_horizontal"
+                android:layout_span="2" />
+        </TableRow>
+        <TableRow android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Type 1"
+                android:id="@+id/type1"
+                android:gravity="center_horizontal" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Name"
-            android:id="@+id/pkmn_name"
-            android:layout_alignParentEnd="false"
-            android:layout_toEndOf="@id/pic_frame"
-            android:layout_alignTop="@+id/pic_frame" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Type 2"
+                android:id="@+id/type2"
+                android:gravity="center_horizontal" />
+        </TableRow>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Type 1"
-            android:id="@+id/type1"
-            android:layout_alignStart="@id/pkmn_name"
-            android:layout_below="@+id/pkmn_name"
-            android:layout_marginTop="15dp" />
+        <TableRow android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Type 2"
-            android:id="@+id/type2"
-            android:layout_toRightOf="@+id/type1"
-            android:layout_alignBaseline="@+id/type1" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Height"
+                android:id="@+id/height"
+                android:gravity="center_horizontal" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Height"
-            android:id="@+id/height"
-            android:layout_toRightOf="@+id/pic_frame"
-            android:layout_alignBottom="@id/pic_frame" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Weight"
+                android:id="@+id/weight"
+                android:gravity="center_horizontal" />
+        </TableRow>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Weight"
-            android:id="@+id/weight"
-            android:layout_toRightOf="@id/height"
-            android:layout_alignBottom="@id/pic_frame" />
+    </TableLayout>
 
-    </RelativeLayout>
 </FrameLayout>
+
